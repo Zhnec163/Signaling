@@ -47,7 +47,7 @@ public class Signaling : MonoBehaviour
 
     private IEnumerator ChangeVolumeValueTo(float current, float target, float timeStep)
     {
-        while (_audioSource.volume != target)
+        while (Mathf.Approximately(_audioSource.volume, target) == false)
         {
             _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, target, timeStep);
             yield return new WaitForSeconds(timeStep);
